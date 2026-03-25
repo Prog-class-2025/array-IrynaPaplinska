@@ -154,25 +154,27 @@ namespace Project1 {
 			{
 				sum += mas1[i];
 			}
-			label1->Text = "Сума елементів масиву: " + sum.ToString();
+			MessageBox::Show("Сума елементів масиву: " + sum.ToString());
 		}
 		
 		if (comboBox1->SelectedIndex == 2) // Мінімум
 		{
-			int min = mas1[10];
-			for (int i = 0; i < 5; i++)
+			label1->Text = " ";
+			int min1 = mas1[0];
+			for (int i = 1; i < 5; i++)
 			{
-				if (mas1[i] < min)
-					min = mas1[i];
+				if (mas1[i] < min1)
+					min1 = mas1[i];
 			}
-			label1->Text = "Мінімальний елемент масиву: " + min.ToString();
+			MessageBox::Show("min1: " + min1.ToString());
+
 			
 		}
 
 		if (comboBox1->SelectedIndex == 3) // Максимум
 		{
-			int max = mas1[10];
-			for (int i = 0; i < 5; i++)
+			int max = mas1[0];
+			for (int i = 1; i < 5; i++)
 			{
 				if (mas1[i] > max)
 					max = mas1[i];
@@ -215,7 +217,10 @@ namespace Project1 {
 
 		if (comboBox1->SelectedIndex == 7) // Діагональ
 		{
-			//TODO: Вивести елементи головної діагоналі матриці
+			int diagSum = 0;
+			for (int i = 0; i < 5; i++)
+				diagSum += matrix[i][i];
+			label1->Text = "Сума діагоналі: " + diagSum.ToString();
 		}
 
 		if (comboBox1->SelectedIndex == 8) // Транспонування
@@ -223,7 +228,10 @@ namespace Project1 {
 			for (int i = 0; i < 5; i++)
 				for (int j = i + 1; j < 5; j++)
 				{
-				// обмін елементів
+					int change = matrix[i][j];
+					matrix[i][j] = matrix[j][i];
+					matrix[j][i] = change;
+
 				
 				}
 
