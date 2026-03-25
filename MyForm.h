@@ -182,7 +182,13 @@ namespace Project1 {
 
 		if (comboBox1->SelectedIndex == 4) // Парні/непарні
 		{
-			//TODO: Вивести кількість парних та непарних елементів масиву
+			int evenCount = 0;
+			int oddCount = 0;
+			for (int i = 0; i < 5; i++) {
+				if (mas1[i] % 2 == 0) evenCount++;
+				else oddCount++;
+			}
+			label1->Text = "Парних: " + evenCount.ToString() + ", Непарних: " + oddCount.ToString();
 		}
 		if (comboBox1->SelectedIndex == 5) // Заповнити матрицю
 		{
